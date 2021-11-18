@@ -2,7 +2,7 @@
 
 Agent is implemented as a deep deterministic policy gradient (DDPG) agent with experience replay and soft updates. DDPG algorithm consists of two deep neural networks; an actor and a critic. The actor takes the environment state as a input and outputs an action. While the critic take the envirnoment state and the action from the actor as inputs and outputs the expected Q-value for the environment's next state.
 
-The actor (policy network) is approximated with two identical neural networks. Each network contains two fully connected dense layers with 400 and 300 neurons and Relu activations\. The final dense layer is activated with tanh and contains 4 neurons representing each of the actions available to the agent. 
+The actor (policy network) is approximated with two identical neural networks. Each network contains two fully connected dense layers with 512 neurons and Relu activations\. The final dense layer is activated with tanh and contains 4 neurons representing one of four actuators available to the agent to move. 
 
 The critic (Q-value) is approximated with two identical neural networks. Each network contains two fully connected dense layers with 512 neurons and Relu activations\. The final dense layer contains 4 neuron representing each of the actions available to the agent. 
 
@@ -10,9 +10,9 @@ The critic (Q-value) is approximated with two identical neural networks. Each ne
 
 ## Result
 
-Agent consistently solves the challenge after approximately 700 episodes. 
+Agent solves the challenge after approximately 1,400 episodes. 
 
-![Agent score](static/model-training.png)
+![Agent score](plot.png)
 
 
 
