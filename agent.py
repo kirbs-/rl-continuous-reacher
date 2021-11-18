@@ -76,13 +76,13 @@ class Agent():
         self.params = params
 
         # setup Actor neural net w/ target NN
-        self.policy_actor = model.Actor(self.params.state_dim, self.params.action_cnt, 256, self.params.seed).to(device)
-        self.target_actor = model.Actor(self.params.state_dim, self.params.action_cnt, 256, self.params.seed).to(device)
+        self.policy_actor = model.Actor(self.params.state_dim, self.params.action_cnt, 512, self.params.seed).to(device)
+        self.target_actor = model.Actor(self.params.state_dim, self.params.action_cnt, 512, self.params.seed).to(device)
         self.optimizer_actor = optim.Adam(self.policy_actor.parameters(), lr=self.params.learning_rate_actor)
 
         # setup Critic neural net w/ target NN
-        self.value_critic = model.Critic(self.params.state_dim, self.params.action_cnt, 256, self.params.seed).to(device)
-        self.target_critic = model.Critic(self.params.state_dim, self.params.action_cnt, 256, self.params.seed).to(device)
+        self.value_critic = model.Critic(self.params.state_dim, self.params.action_cnt, 512, self.params.seed).to(device)
+        self.target_critic = model.Critic(self.params.state_dim, self.params.action_cnt, 512, self.params.seed).to(device)
         self.optimizer_critic = optim.Adam(self.value_critic.parameters(), lr=self.params.learning_rate_critic, weight_decay=0)
 
         self.noise = OUNoise(self.params.action_cnt, self.params.seed)
